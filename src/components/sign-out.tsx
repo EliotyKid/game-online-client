@@ -1,12 +1,25 @@
 "use client";
-import { Button } from "@/components/ui/button";
 
-const SignOut = () => {
-  const handleSignOut = async () => {};
+import { Button } from "@/components/ui/button";
+import { signOut } from "next-auth/react";
+
+interface SignOutProps {
+  className?: string; // permite passar classes personalizadas
+  buttonClassName?: string; // opcional: classes específicas para o botão
+}
+
+const SignOut: React.FC<SignOutProps> = ({ className = "", buttonClassName = "" }) => {
+  const handleSignOut = async () => {
+    await signOut();
+  };
 
   return (
-    <div className="flex justify-center">
-      <Button variant="destructive" onClick={handleSignOut}>
+    <div className={`flex justify-center ${className}`}>
+      <Button
+        variant="destructive"
+        onClick={handleSignOut}
+        className={buttonClassName}
+      >
         Sign Out
       </Button>
     </div>
@@ -14,3 +27,4 @@ const SignOut = () => {
 };
 
 export { SignOut };
+

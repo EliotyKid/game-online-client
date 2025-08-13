@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Github } from "@/components/ui/github";
+import { Discord } from "@/components/ui/discord";
 import { signIn } from "@/lib/auth";
 
-const GithubSignIn = () => {
+const DiscordSignIn = () => {
   return (
     <form
       action={async () => {
@@ -11,11 +11,11 @@ const GithubSignIn = () => {
       }}
     >
       <Button className="w-full" variant="outline">
-        <Github />
-        Continue with GitHub
+        <Discord />
+        Continue com o Discord
       </Button>
     </form>
   );
 };
 
-export { GithubSignIn };
+export { DiscordSignIn };
