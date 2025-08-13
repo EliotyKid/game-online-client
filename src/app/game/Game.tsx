@@ -1,6 +1,5 @@
 "use client";
-
-import { use, useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Game = ({ token }: { token?: string }) => {
   useEffect(() => {

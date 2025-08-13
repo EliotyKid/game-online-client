@@ -1,8 +1,5 @@
 import { DiscordSignIn } from "@/components/discord-sign-in";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { auth } from "@/lib/auth";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 
 const Page = async () => {
