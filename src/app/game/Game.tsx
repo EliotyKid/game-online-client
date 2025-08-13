@@ -1,12 +1,27 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const Game = ({ token }: { token?: string }) => {
+const Game = () => {
+  const [token, setToken] = useState<string | null>(null);
+
   useEffect(() => {
-    if (token) {
-      localStorage.setItem("authToken", token);
+    async function fetchToken() {
+      try {
+        const res = await fetch("http://localhost:3000/api/session-token", {
+          credentials: "include", // ⚠ envia cookies httpOnly junto
+        });
+        const data = await res.json();
+        if (data.token) {
+          setToken(data.token);
+          localStorage.setItem("authToken", data.token);
+        }
+      } catch (err) {
+        console.error("Failed to fetch token:", err);
+      }
     }
-  }, [token]);
+
+    fetchToken();
+  }, []);
 
   const srcUrl = token
     ? `/game/index.html?token=${token}`

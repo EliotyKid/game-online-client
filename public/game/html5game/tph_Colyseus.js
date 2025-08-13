@@ -268,5 +268,6 @@ function LeaveRoom(id, room_id){
 }
 
 function GetToken() {
-  return localStorage.getItem("authToken") || "sdasdasdas";
+  const token = localStorage.getItem("authToken");
+  return token ? token : "sadsdasdasd";
 }

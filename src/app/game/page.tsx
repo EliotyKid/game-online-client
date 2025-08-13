@@ -7,9 +7,9 @@ export default async function Page() {
   const session = await auth();
   if (!session) redirect("/sign-in");
 
-  // pega os cookies
-  const cookieStore = await cookies(); // await necessário
-  const token = cookieStore.get("authjs.session-token")?.value;
-
-  return <Game token={token} />;
+  
+  // const cookieStore = await cookies(); // await necessário
+  // const token = cookieStore.get("authjs.session-token")?.value;
+  const token = null
+  return <Game />;
 }
