@@ -9,6 +9,6 @@ export default async function Page() {
   
   // const cookieStore = await cookies(); // await necessário
   // const token = cookieStore.get("authjs.session-token")?.value;
-  const token = null
+
   return <Game />;
 }

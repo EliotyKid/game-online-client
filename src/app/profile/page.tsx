@@ -16,7 +16,7 @@ const Page = async () => {
         <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-yellow-400 shadow-lg">
           <img
             src={session.user?.image || "/default-avatar.png"}
-            // alt={session.user?.name}
+            alt={"user avatar"}
             className="w-full h-full object-cover"
           />
         </div>
