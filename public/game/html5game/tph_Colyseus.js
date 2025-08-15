@@ -267,7 +267,32 @@ function LeaveRoom(id, room_id){
   room.socket.leave()
 }
 
-function GetToken() {
-  const token = localStorage.getItem("authToken");
-  return token ? token : "sadsdasdasd";
+async function GetToken() {
+  try {
+    const res = await fetch("https://game-online-client.vercel.app/api/session-token");
+    const data = await res.json();
+
+    console.log("token received", data.token);
+
+    emit({
+      emitter: "Client",
+      type: "Join",
+      token: data.token,
+      message: "token received",
+      command: "get_token"
+    });
+  } catch (err) {
+    emit({
+      emitter: "Client",
+      type: "error",
+      message: `failed to get token: ${err.message}`,
+      command: "get_token"
+    });
+  }
 }
+
+
+// function GetToken() {
+//   const token = localStorage.getItem("authToken");
+//   return token ? token : "sadsdasdasd";
+// }
